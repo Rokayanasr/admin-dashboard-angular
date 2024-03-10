@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="container-fluid ">
   <!--  Row 1 -->
   <div class="row">
     <div class="col-lg-8 d-flex align-items-strech">
-      <div class="card w-100">
+      <div class="card w-100 shadow">
         <div class="card-body">
           <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
             <div class="mb-3 mb-sm-0">
@@ -25,9 +25,8 @@
       <div class="row">
         <div class="col-lg-12">
           <!-- Yearly Breakup -->
-          <div class="card overflow-hidden">
+          <div class="card overflow-hidden shadow">
             <div class="card-body  p-4">
-              <h5 class="card-title mb-9 fw-semibold">Yearly Breakup</h5>
               <div class="row align-items-center">
                 <div class="col-8 py-4">
                   <h5 class="card-title mb-9 fw-normal">Yearly Revenue</h5>
@@ -62,8 +61,8 @@
         </div>
         <div class="col-lg-12">
           <!-- Monthly Earnings -->
-          <div class="card">
-            <div class="card-body">
+          <div class="card shadow">
+            <div class="card-body ">
               <div class="row alig n-items-start">
                 <div class="col-8">
                   <h5 class="card-title mb-9 fw-normal"> Monthly Earnings </h5>
@@ -95,8 +94,8 @@
   </div>
   <div class="row">
     <div class="col-lg-4 d-flex align-items-stretch">
-      <div class="card w-100">
-        <div class="card-body p-4">
+      <div class="card w-100 shadow">
+        <div class="card-body p-4 ">
           <div class="mb-4">
             <h5 class="card-title fw-semibold">Recent Transactions</h5>
           </div>
@@ -107,7 +106,8 @@
                 <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
                 <span class="timeline-badge-border d-block flex-shrink-0"></span>
               </div>
-              <div class="timeline-desc fs-6 text-dark mt-n1">Payment received from John Doe of <span class="text-bg-light-indigo"> $385.90</span></div>
+              <div class="timeline-desc fs-6 text-dark mt-n1">Payment received from John Doe of <span
+                  class="text-bg-light-indigo"> $385.90</span></div>
             </li>
             <li class="timeline-item d-flex position-relative overflow-hidden">
               <div class="timeline-time text-dark fw-semibold flex-shrink-0 text-end">10:00 am</div>
@@ -158,49 +158,118 @@
       </div>
     </div>
     <div class="col-lg-8 d-flex align-items-stretch">
-      <div class="card w-100">
+      <div class="card w-100 shadow">
         <div class="card-body p-4">
           <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
           <div class="table-responsive">
-            <table class="table align-content-center justify-content-center text-nowrap mb-0 align-middle">
-              <thead class="text-dark fs-4">
+            <table class="table align-middle mb-0 bg-white">
+              <thead class="bg-light">
                 <tr>
-                  <th class="border-bottom-0 ">
-                    <h6 class="fw-semibold mb-0">Image</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">Assigned</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">Name</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">Priority</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">Budget</h6>
-                  </th>
+                  <th>order</th>
+                  <th>user</th>
+                  <th>country</th>
+                  <th>shipping</th>
+                  <th>total</th>
+                  <th>status</th>
+                  <th>Delete</th>
+                  <th>Edit</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td class="border-bottom-0 ">
-                    <img class="img-fluid img-thumbnail w-20 border border-indigo rounded-circle" src="../assets/images/products/s4.jpg" alt="">
-                  </td>
-                  <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                    <span class="fw-normal">Web Designer</span>
-                  </td>
-                  <td class="border-bottom-0">
-                    <p class="mb-0 fw-normal">Elite Admin</p>
-                  </td>
-                  <td class="border-bottom-0">
-                    <div class="d-flex align-items-center gap-2">
-                      <span class="badge bg-primary rounded-3 fw-semibold">Low</span>
+                  <td>
+                    <div class="d-flex align-items-center">
+                        <p class="fw-normal mb-1">John Doe</p>
                     </div>
                   </td>
-                  <td class="border-bottom-0">
-                    <h6 class="fw-normal mb-0 fs-5">$3.9</h6>
+                  <td>
+                    <p class="fw-normal mb-1">john</p>
+                  </td>
+                  <td>
+                    <p class="fw-normal mb-1">EG</p>
+                  </td>
+                  <td>
+                    <p class="fw-normal mb-1">40 $</p>
+                  </td>
+                  <td>
+                    <span class=" fw-normal">576 $</span>
+                  </td>
+                  <td>
+                    <span class="badge bg-info rounded-3 fw-semibold">success</span>
+                  </td>
+                  <td> <button type="button"
+                      class="btn text-danger btn-sm bg-body-secondary btn-light-indigo rounded-bill">
+                      Delete
+                    </button></td>
+                  <td>
+                    <button type="button"
+                      class="btn text-indigo btn-sm bg-body-secondary btn-light-indigo rounded-bill">
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center">
+                        <p class="fw-normal mb-1">John Doe</p>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="fw-normal mb-1">john</p>
+                  </td>
+                  <td>
+                    <p class="fw-normal mb-1">EG</p>
+                  </td>
+                  <td>
+                    <p class="fw-normal mb-1">40 $</p>
+                  </td>
+                  <td>
+                    <span class=" fw-normal">576 $</span>
+                  </td>
+                  <td>
+                    <span class="badge bg-info rounded-3 fw-semibold">success</span>
+                  </td>
+                  <td> <button type="button"
+                      class="btn text-danger btn-sm bg-body-secondary btn-light-indigo rounded-bill">
+                      Delete
+                    </button></td>
+                  <td>
+                    <button type="button"
+                      class="btn text-indigo btn-sm bg-body-secondary btn-light-indigo rounded-bill">
+                      Edit
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center">
+                        <p class="fw-normal mb-1">John Doe</p>
+                    </div>
+                  </td>
+                  <td>
+                    <p class="fw-normal mb-1">john</p>
+                  </td>
+                  <td>
+                    <p class="fw-normal mb-1">EG</p>
+                  </td>
+                  <td>
+                    <p class="fw-normal mb-1">40 $</p>
+                  </td>
+                  <td>
+                    <span class=" fw-normal">576 $</span>
+                  </td>
+                  <td>
+                    <span class="badge bg-danger rounded-3 fw-semibold">rejected</span>
+                  </td>
+                  <td> <button type="button"
+                      class="btn text-danger btn-sm bg-body-secondary btn-light-indigo rounded-bill">
+                      Delete
+                    </button></td>
+                  <td>
+                    <button type="button"
+                      class="btn text-indigo btn-sm bg-body-secondary btn-light-indigo rounded-bill">
+                      Edit
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -212,93 +281,232 @@
   </div>
   <div class="row">
     <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2">
+      <div class="card overflow-hidden rounded-2 shadow">
         <div class="position-relative">
           <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
               alt="..."></a>
-          <a href="javascript:void(0)"
-            class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-              class="ti ti-basket fs-4"></i></a>
+          <div class="dropdown">
+            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+              <i class="ti ti-list"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+               <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
         </div>
         <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-4">Boat Headphone</h6>
-          <div class="d-flex align-items-center justify-content-between">
-            <h6 class="fw-semibold fs-4 mb-0">$50 <span class="ms-2 fw-normal text-muted fs-3"><del>$65</del></span>
-            </h6>
-            <ul class="list-unstyled d-flex align-items-center mb-0">
-              
-            </ul>
+          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
+          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
+            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
+            <div class="d-flex justify-content-end">
+              <span class="badge bg-info rounded-3 fw-semibold">success</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2">
+      <div class="card overflow-hidden rounded-2 shadow">
         <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s5.jpg" class="card-img-top rounded-0"
+          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
               alt="..."></a>
-          <a href="javascript:void(0)"
-            class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-              class="ti ti-basket fs-4"></i></a>
+          <div class="dropdown">
+            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+              <i class="ti ti-list"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+               <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
         </div>
         <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-4">MacBook Air Pro</h6>
-          <div class="d-flex align-items-center justify-content-between">
-            <h6 class="fw-semibold fs-4 mb-0">$650 <span class="ms-2 fw-normal text-muted fs-3"><del>$900</del></span>
-            </h6>
-            <ul class="list-unstyled d-flex align-items-center mb-0">
-              
-            </ul>
+          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
+          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
+            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
+            <div class="d-flex justify-content-end">
+              <span class="badge bg-info rounded-3 fw-semibold">success</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2">
+      <div class="card overflow-hidden rounded-2 shadow">
         <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s7.jpg" class="card-img-top rounded-0"
+          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
               alt="..."></a>
-          <a href="javascript:void(0)"
-            class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-              class="ti ti-basket fs-4"></i></a>
+          <div class="dropdown">
+            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+              <i class="ti ti-list"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+               <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
         </div>
         <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-4">Red Valvet Dress</h6>
-          <div class="d-flex align-items-center justify-content-between">
-            <h6 class="fw-semibold fs-4 mb-0">$150 <span class="ms-2 fw-normal text-muted fs-3"><del>$200</del></span>
-            </h6>
+          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
+          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
+            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
+            <div class="d-flex justify-content-end">
+              <span class="badge bg-info rounded-3 fw-semibold">success</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2">
+      <div class="card overflow-hidden rounded-2 shadow">
         <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s11.jpg" class="card-img-top rounded-0"
+          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
               alt="..."></a>
-          <a href="javascript:void(0)"
-            class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-              class="ti ti-basket fs-4"></i></a>
+          <div class="dropdown">
+            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+              <i class="ti ti-list"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+               <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
         </div>
         <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-4">Cute Soft Teddybear</h6>
-          <div class="d-flex align-items-center justify-content-between">
-            <h6 class="fw-semibold fs-4 mb-0">$285 <span class="ms-2 fw-normal text-muted fs-3"><del>$345</del></span>
-            </h6>
-            <ul class="list-unstyled d-flex align-items-center mb-0">
-              
-            </ul>
+          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
+          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
+            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
+            <div class="d-flex justify-content-end">
+              <span class="badge bg-info rounded-3 fw-semibold">success</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="card overflow-hidden rounded-2 shadow">
+        <div class="position-relative">
+          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
+              alt="..."></a>
+          <div class="dropdown">
+            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+              <i class="ti ti-list"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+               <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body pt-3 p-4">
+          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
+          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
+            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
+            <div class="d-flex justify-content-end">
+              <span class="badge bg-info rounded-3 fw-semibold">success</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="card overflow-hidden rounded-2 shadow">
+        <div class="position-relative">
+          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
+              alt="..."></a>
+          <div class="dropdown">
+            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+              <i class="ti ti-list"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+               <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body pt-3 p-4">
+          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
+          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
+            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
+            <div class="d-flex justify-content-end">
+              <span class="badge bg-info rounded-3 fw-semibold">success</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="card overflow-hidden rounded-2 shadow">
+        <div class="position-relative">
+          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
+              alt="..."></a>
+          <div class="dropdown">
+            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+              <i class="ti ti-list"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+               <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body pt-3 p-4">
+          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
+          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
+            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
+            <div class="d-flex justify-content-end">
+              <span class="badge bg-info rounded-3 fw-semibold">success</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+      <div class="card overflow-hidden rounded-2 shadow">
+        <div class="position-relative">
+          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
+              alt="..."></a>
+          <div class="dropdown">
+            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+              <i class="ti ti-list"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+               <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body pt-3 p-4">
+          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
+          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
+            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
+            <div class="d-flex justify-content-end">
+              <span class="badge bg-info rounded-3 fw-semibold">success</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="py-6 px-6 text-center">
-    <p class="mb-0 fs-4">Design and Developed by Rokaya Nasr<a href="https://adminmart.com/" target="_blank"
-        class="pe-1 text-primary text-decoration-underline">AdminMart.com</a></p>
+    <!-- <p class="mb-0 fs-6">Design and Developed by Rokaya Nasr</p> -->
   </div>
 </div>

@@ -10,6 +10,10 @@ import { MainComponent } from './components/main/main.component';
 import { CoachComponent } from './components/coach/coach.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { MealsComponent } from './components/meals/meals.component';
+import { HomeComponent } from './components/home/home.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { LoginComponent } from './components/login/login.component';
     MainComponent,
     CoachComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MealsComponent,
+    HomeComponent,
+    OrdersComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
