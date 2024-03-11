@@ -14,6 +14,8 @@ import { MealsComponent } from './components/meals/meals.component';
 import { HomeComponent } from './components/home/home.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MealsService } from './components/services/meals.service';
 
 @NgModule({
   declarations: [
@@ -31,10 +33,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    MealsService
   ],
   bootstrap: [AppComponent]
 })

@@ -24,6 +24,7 @@ export class order {
             this.payment_status = payment_status
     }
 }
+
 export interface MealI {
     _id: string;
     title: string;
@@ -36,3 +37,5 @@ export interface shippingI {
     city: string,
     country: string,
 }
+
+
