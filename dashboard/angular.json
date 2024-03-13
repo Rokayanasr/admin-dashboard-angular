@@ -89,6 +89,10 @@
             "production": {
               "buildTarget": "dashboard:build:production"
             },
+            "options": {
+              "buildTarget": "move-safe:build",
+              "proxyConfig": "proxy.conf.json"
+            },
             "development": {
               "buildTarget": "dashboard:build:development"
             }

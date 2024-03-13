@@ -1,10 +1,20 @@
 <div class="container-fluid">
+  <div class="d-flex justify-content-center gap-2 mb-4 ">
+    <h2>MEALS</h2>
+    <a routerLink="/mealform">
+      <i class="ti ti-plus card-title btn btn-outline-secondary btn-sm"></i>
+    </a>
+    <!-- <h3 class="card-title  fw-semibold mb-4 btn btnPrimary text-white changPrimary w-25 h-25">add MEAL</h3> -->
+  
+  </div>
+
   <div class="row">
-    <h2 class="text-center">MEALS</h2>
-    <div class="col-sm-6 col-xl-3">
+
+    <div class="col-sm-6 col-xl-3" *ngFor="let meal of meals" >
+      
       <div class="card overflow-hidden rounded-2 shadow">
         <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
+          <a href="javascript:void(0)"><img [src]="'http://localhost:3000/uploads/' + meal.imageFile" class="card-img-top rounded-0"
               alt="..."></a>
           <div class="dropdown">
             <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
@@ -19,207 +29,11 @@
           </div>
         </div>
         <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
-          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
-            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
+          <h6 class="fw-semibold fs-5">{{meal.title}}</h6>
+          <div class="d-flex align-items-center px-2 gap-4 justify-content-between">
+            <h6 class="fw-semibold fs-6 mb-0">${{meal.price}}</h6>
             <div class="d-flex justify-content-end">
-              <span class="badge bg-info rounded-3 fw-semibold">success</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2 shadow">
-        <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
-              alt="..."></a>
-          <div class="dropdown">
-            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-              <i class="ti ti-list"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-               <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
-          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
-            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
-            <div class="d-flex justify-content-end">
-              <span class="badge bg-info rounded-3 fw-semibold">success</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2 shadow">
-        <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
-              alt="..."></a>
-          <div class="dropdown">
-            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-              <i class="ti ti-list"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-               <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
-          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
-            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
-            <div class="d-flex justify-content-end">
-              <span class="badge bg-info rounded-3 fw-semibold">success</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2 shadow">
-        <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
-              alt="..."></a>
-          <div class="dropdown">
-            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-              <i class="ti ti-list"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-               <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
-          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
-            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
-            <div class="d-flex justify-content-end">
-              <span class="badge bg-info rounded-3 fw-semibold">success</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2 shadow">
-        <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
-              alt="..."></a>
-          <div class="dropdown">
-            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-              <i class="ti ti-list"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-               <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
-          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
-            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
-            <div class="d-flex justify-content-end">
-              <span class="badge bg-info rounded-3 fw-semibold">success</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2 shadow">
-        <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
-              alt="..."></a>
-          <div class="dropdown">
-            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-              <i class="ti ti-list"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-               <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
-          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
-            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
-            <div class="d-flex justify-content-end">
-              <span class="badge bg-info rounded-3 fw-semibold">success</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2 shadow">
-        <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
-              alt="..."></a>
-          <div class="dropdown">
-            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-              <i class="ti ti-list"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-               <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
-          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
-            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
-            <div class="d-flex justify-content-end">
-              <span class="badge bg-info rounded-3 fw-semibold">success</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-      <div class="card overflow-hidden rounded-2 shadow">
-        <div class="position-relative">
-          <a href="javascript:void(0)"><img src="../assets/images/products/s4.jpg" class="card-img-top rounded-0"
-              alt="..."></a>
-          <div class="dropdown">
-            <button type="button" id="dropdownMenuButton" class="btn changPrimary  p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-4"  data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-              <i class="ti ti-list"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-               <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </div>
-        <div class="card-body pt-3 p-4">
-          <h6 class="fw-semibold fs-5">Boat Headphone</h6>
-          <div class="d-flex align-items-center px-2 gap-5 justify-content-between">
-            <h6 class="fw-semibold fs-6 mb-0">$50</h6>
-            <div class="d-flex justify-content-end">
-              <span class="badge bg-info rounded-3 fw-semibold">success</span>
+              <span class="badge bg-secondary rounded-3 fw-semibold">{{meal.category}}</span>
             </div>
           </div>
         </div>

@@ -9,6 +9,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MealFormComponent } from './components/mealForm/mealForm.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'main' ,pathMatch:'full'},
@@ -32,6 +33,8 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'mealform', component: MealFormComponent },
+
   { path: '**', component: NotFoundComponent },
 
 ];

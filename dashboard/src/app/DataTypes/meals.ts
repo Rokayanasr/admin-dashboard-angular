@@ -1,15 +1,16 @@
 export interface ApiResponse<T> {
-  message?: string;
-  data: string;
+  items: T;
+  msg?: string;
+  status?:string
 }
 
 export interface IMeal {
   _id: string;
   title: string;
   category: string;
-  description: string;
+  // description: string;
   price: string;
-  ingrediants: Array<string>;
+  // ingrediants: Array<string>;
   imageFile: string
 }
 

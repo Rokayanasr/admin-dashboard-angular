@@ -39,3 +39,9 @@ a{
   justify-content: center !important;
   align-items: center !important;
 }
+.pinkBg{
+  background-color: #fd96e6;
+}
+.pinkText{
+  color: #fd96e6;
+}

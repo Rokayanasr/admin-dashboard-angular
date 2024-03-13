@@ -29,7 +29,7 @@ export interface MealI {
     _id: string;
     title: string;
     price: string;
-    cartQuantity: number;
+    // cartQuantity: number;
 }
 //crocky shipping interface
 export interface shippingI {

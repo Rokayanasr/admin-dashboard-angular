@@ -14,8 +14,12 @@ import { MealsComponent } from './components/meals/meals.component';
 import { HomeComponent } from './components/home/home.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { MealsService } from './components/services/meals.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MealFormComponent } from './components/mealForm/mealForm.component';
+import { AuthInterceptor } from './components/services/interceptors/auth.interceptor';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,16 +33,21 @@ import { MealsService } from './components/services/meals.service';
     MealsComponent,
     HomeComponent,
     OrdersComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MealFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule
+    
   ],
   providers: [
     provideAnimationsAsync(),
-    MealsService
+    MealsService,
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
   ],
   bootstrap: [AppComponent]
 })
