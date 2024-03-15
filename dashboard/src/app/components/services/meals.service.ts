@@ -15,25 +15,25 @@ export class MealsService {
   }
 
   getAllMeals(): Observable<any> {
-    return this.Http.get(this.apiurl+"/meals/get-all")
+    return this.Http.get(this.apiurl + "/meals/get-all")
 
   }
 
 
-// getMeal(id: string): Observable<ApiResponse<IMeal>> {
-//   return this.Http.get<ApiResponse<IMeal>>(this.apiurl}/meals/getItemById/${id}`)
-// },
+  getMeal(id: string): Observable<ApiResponse<any>> {
+    return this.Http.get<ApiResponse<any>>(this.apiurl + "/meals/getItemById/" + id)
+  }
 
-createMeal(meal: IMeal): Observable<ApiResponse<IMeal>> {
-  return this.Http.post<ApiResponse<IMeal>>(this.apiurl+"/meals/add-item", meal);
-}
-// updateMeal(id: string, meal: IMeal) {
-//   return this.Http.patch<ApiResponse<IMeal>>(`${this.apiurl}/meals/edit-item/${id}`, meal)
-// },
+  createMeal(meal: any): Observable<ApiResponse<any>> {
+    return this.Http.post<ApiResponse<any>>(this.apiurl + "/meals/add-item/", meal);
+  }
+  updateMeal(id: string, meal: any) {
+    return this.Http.patch<ApiResponse<any>>(this.apiurl + "/meals/edit-item/" + id, meal)
+  }
 
-// deleteMeal(id: string):Observable<any>{
-//   return this.Http.delete(`${this.apiurl}/meals/delete-item/${id}`)
-// }
+  deleteMeal(id: string): Observable<ApiResponse<IMeal>> {
+    return this.Http.delete<ApiResponse<IMeal>>(this.apiurl + "/meals/delete-item/" + id)
+  }
 
 
 }

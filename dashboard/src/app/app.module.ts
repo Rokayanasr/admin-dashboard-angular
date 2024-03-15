@@ -20,6 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MealFormComponent } from './components/mealForm/mealForm.component';
 import { AuthInterceptor } from './components/services/interceptors/auth.interceptor';
 import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -41,8 +43,9 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CommonModule
-    
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     provideAnimationsAsync(),
@@ -52,3 +55,4 @@ import { CommonModule } from '@angular/common';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

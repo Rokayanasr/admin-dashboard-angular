@@ -29,7 +29,10 @@ const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'users', component: UsersComponent },
   { path: 'coaches', component: CoachComponent },
-  { path: 'meals', component: MealsComponent },
+  { path: 'meals', component: MealsComponent, 
+  children: [
+    { path: 'mealform', component: MealFormComponent },
+  ] },
   { path: 'orders', component: OrdersComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { MealI } from '../../DataTypes/order';
 import { MealsService } from '../services/meals.service';
 import { IMeal } from '../../DataTypes/meals';
-
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+// 
 @Component({
   selector: 'app-meals',
   templateUrl: './meals.component.html',
@@ -10,8 +12,9 @@ import { IMeal } from '../../DataTypes/meals';
 })
 export class MealsComponent {
   meals: IMeal[] = [];
-  meal!: IMeal;
-  constructor( private mealsService: MealsService) {
+  meal!: any;
+  constructor( private mealsService: MealsService ,
+    private toast: ToastrService , private router: Router) {
   }
 
   ngOnInit(): void {
@@ -29,4 +32,21 @@ export class MealsComponent {
     });
   }
 
+
+  deleteMeal(id:string){
+    this.mealsService.deleteMeal(id).subscribe({
+      next:(response)=>{
+        // this.meals = response.items;
+        this.toast.warning("deleted successfully");
+        this.getAllMeals()
+      }
+    })
+  }
+
+  loadMeal(data :any){
+    this.meal = data
+    // this.router.navigate(['/mealform'])
+  }
+
 }
+

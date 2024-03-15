@@ -69,11 +69,9 @@
               </div>
               <div class="col-md-9 pe-5">
 
-                <input class="form-control form-control-lg" id="formFileLg" type="file" formControlName="imageFile"/>
-                <div *ngIf="mealForm.get('imageFile')?.errors && mealForm.get('imageFile')?.touched" class="alert alert-danger p-1">
-                  <p  *ngIf="mealForm.get('imageFile')?.getError('required')" class="m-0" >image require</p>
-                  <p  *ngIf="mealForm.get('imageFile')?.getError('fileSizeValidator')" class="m-0" >image exceeds</p>
-
+                <input type="file" (change)="handleFileSelection($event)" />
+                <div *ngIf="true">
+                  <p class="text-danger">Please select an image file to upload.</p>
                 </div>
                 <div class="small text-muted mt-2">max size 50mps</div>
 
@@ -83,7 +81,7 @@
             <hr class="mx-n3">
 
             <div class="px-5 py-4">
-              <button type="submit" class="btn changPrimary btnPrimary text-white btn-lg">Submit</button>
+              <button type="submit" class="btn changPrimary btnPrimary text-white btn-lg "  >Submit</button>
             </div>
 
           </div>
@@ -93,3 +91,4 @@
     </div>
   </div>
 </form>
+
