@@ -8,9 +8,9 @@ export interface IMeal {
   _id: string;
   title: string;
   category: string;
-  // description: string;
+  description?: string;
   price: string;
-  // ingrediants: Array<string>;
+  ingrediants?: Array<string>;
   imageFile: string
 }
 
