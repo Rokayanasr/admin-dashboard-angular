@@ -47,6 +47,10 @@ export class MealsComponent {
     this.meal = data
     // this.router.navigate(['/mealform'])
   }
-
+// Clear the meal data when navigating to the meal form to add a new meal
+addMeal() {
+  this.meal = null;
+  this.router.navigate(['/mealform']);
+}
 }
 
