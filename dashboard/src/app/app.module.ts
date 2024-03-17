@@ -16,12 +16,13 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { MealsService } from './components/services/meals.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MealFormComponent } from './components/mealForm/mealForm.component';
-import { AuthInterceptor } from './components/services/interceptors/auth.interceptor';
+// import { AuthInterceptor } from './components/services/interceptors/auth.interceptor';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsersService } from './components/services/users.service';
 
 @NgModule({
   declarations: [
@@ -46,11 +47,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    FormsModule
   ],
   providers: [
     provideAnimationsAsync(),
     MealsService,
-    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+    // {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

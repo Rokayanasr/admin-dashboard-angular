@@ -1,78 +1,58 @@
-<form class="vh-100" >
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-9">
-  
-          <h1 class="text-indigo text-opacity-75 text-center fs-3 mb-4">ADD USER</h1>
-  
-          <div class="card" style="border-radius: 15px;">
-            <div class="card-body">
-  
-              <div class="row align-items-center pt-4 pb-3">
-                <div class="col-md-3 ps-5">
-  
-                  <h6 class="mb-0">Full name</h6>
-  
-                </div>
-                <div class="col-md-9 pe-5">
-  
-                  <input type="text" class="form-control form-control-lg" />
-  
-                </div>
-              </div>
-  
-              <hr class="mx-n3">
-  
-              <div class="row align-items-center py-3">
-                <div class="col-md-3 ps-5">
-  
-                  <h6 class="mb-0">Email address</h6>
-  
-                </div>
-                <div class="col-md-9 pe-5">
-  
-                  <input type="email" class="form-control form-control-lg" placeholder="example@example.com" />
-  
-                </div>
-              </div>
-  
-              <hr class="mx-n3">
-  
-              <div class="row align-items-center py-3">
-                <div class="col-md-3 ps-5">
-  
-                  <h6 class="mb-0">password</h6>
-  
-                </div>
-                <div class="col-md-9 pe-5">
-                    <input type="password" class="form-control form-control-lg"  />
-                </div>
-              </div>
-  
-              <hr class="mx-n3">
-  
-              <div class="row align-items-center py-3">
-                <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">Upload your profile picture</h6>
-                </div>
-                <div class="col-md-9 pe-5">
-  
-                  <input class="form-control form-control-lg" id="formFileLg" type="file" />
-                  <div class="small text-muted mt-2">max size 50mps</div>
-  
-                </div>
-              </div>
-  
-              <hr class="mx-n3">
-  
-              <div class="px-5 py-4">
-                <button type="submit" class="btn changPrimary btnPrimary text-white btn-lg">Send application</button>
-              </div>
-  
+<form class="vh-100 was-validated"[formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-9">
+
+        <h1 class="text-indigo text-opacity-75 text-center fs-3 mb-4">ADD USER</h1>
+
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body">
+
+            <div class="mb-3">
+              <label for="exampleInputName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="exampleInputName" formControlName="name">
             </div>
+
+            <hr class="mx-n3">
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+
+            <hr class="mx-n3">
+
+
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+            </div>
+
+            <hr class="mx-n3">
+
+            <div>
+              <label>Select User Role:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="userRole" id="userRadio" value="false" (change)="onChangeUserRole(false)" checked>
+                <label class="form-check-label" for="userRadio">User</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="userRole" id="adminRadio" value="true" (change)="onChangeUserRole(true)" >
+                <label class="form-check-label" for="adminRadio">Admin</label>
+              </div>
+            </div>
+
+            <hr class="mx-n3">
+
+            <div class="px-5 py-4">
+              <button type="submit" class="btn changPrimary btnPrimary text-white btn-lg">Send application</button>
+            </div>
+
           </div>
-  
         </div>
+
       </div>
     </div>
-  </form>
+  </div>
+</form>

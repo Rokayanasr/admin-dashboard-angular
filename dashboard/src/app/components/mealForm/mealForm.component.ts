@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MealsService } from '../services/meals.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mealForm',
@@ -16,7 +17,8 @@ export class MealFormComponent implements OnInit, OnChanges {
 
   constructor(private fb: FormBuilder,
     private mealService: MealsService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private router: Router
   ) {
     this.mealForm = this.fb.group({
       title: ['', Validators.required],
@@ -72,6 +74,7 @@ export class MealFormComponent implements OnInit, OnChanges {
   private createMeal() {
     this.mealService.createMeal(this.finalData!).subscribe({
       next: (response) => {
+        this.router.navigateByUrl('/meals')
         this.toast.success('Meal created successfully.');
         this.mealUpdated.emit();
         this.resetForm();
@@ -85,6 +88,7 @@ export class MealFormComponent implements OnInit, OnChanges {
   private updateMeal() {
     this.mealService.updateMeal(this.data._id as string, this.finalData!).subscribe({
       next: (response) => {
+        this.router.navigateByUrl('/meals')
         this.toast.success('Meal updated successfully.');
         this.mealUpdated.emit();
         this.resetForm();
