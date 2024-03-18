@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MealFormComponent } from './components/mealForm/mealForm.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'main' ,pathMatch:'full'},
@@ -27,7 +28,11 @@ const routes: Routes = [
     ],
   },
   { path: 'main', component: MainComponent },
-  { path: 'users', component: UsersComponent },
+  { path: 'users', component: UsersComponent ,
+  children: [
+    {path: 'edituser' , component: EditUserComponent}
+  ]
+},
   { path: 'coaches', component: CoachComponent },
   { path: 'meals', component: MealsComponent, 
   children: [
@@ -37,6 +42,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'mealform', component: MealFormComponent },
+  { path: 'edituser', component: EditUserComponent },
 
   { path: '**', component: NotFoundComponent },
 

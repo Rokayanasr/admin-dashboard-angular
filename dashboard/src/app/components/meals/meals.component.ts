@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MealI } from '../../DataTypes/order';
 import { MealsService } from '../services/meals.service';
 import { IMeal } from '../../DataTypes/meals';
 import { ToastrService } from 'ngx-toastr';

@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ApiResponse, IMeal } from '../../DataTypes/meals';
-import { MealI } from '../../DataTypes/order';
 
 @Injectable({
   providedIn: 'root'

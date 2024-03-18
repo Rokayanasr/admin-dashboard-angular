@@ -18,11 +18,13 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { MealsService } from './components/services/meals.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MealFormComponent } from './components/mealForm/mealForm.component';
-// import { AuthInterceptor } from './components/services/interceptors/auth.interceptor';
+import { AuthInterceptor } from './components/services/interceptors/auth.interceptor';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsersService } from './components/services/users.service';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { OrderService } from './components/services/order.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { UsersService } from './components/services/users.service';
     OrdersComponent,
     NotFoundComponent,
     MealFormComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -52,8 +55,9 @@ import { UsersService } from './components/services/users.service';
   providers: [
     provideAnimationsAsync(),
     MealsService,
-    // {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
-    UsersService
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
+    UsersService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })

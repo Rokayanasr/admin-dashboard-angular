@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { IRegister } from '../../../DataTypes/users';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -8,11 +9,12 @@ import { IRegister } from '../../../DataTypes/users';
   styleUrl: './users.component.css'
 })
 export class UsersComponent implements OnInit {
-
+  user!: any;
   users :IRegister[] = []
 
   constructor(
     private userService : UsersService,
+    private toast : ToastrService
   ){}
 
     ngOnInit() : void {
@@ -20,18 +22,36 @@ export class UsersComponent implements OnInit {
   }
 
   getAll() {
-    this.userService.getAllUsers().subscribe(
-      (response) => {
-        if (response.data) {
-          this.users = response.data;
+    this.userService.getAllUsers().subscribe({
+      next: (response) => {
+        if (Array.isArray(response)) {
+          this.users = response;
           console.log(this.users);
+        } else {
+          console.log('Invalid or empty response:', response);
         }
       },
-      (error) => {
-        console.error('Error in getAll:', error);
+      error: (err) => {
+        console.error('An error occurred:', err);
       }
-    );
+    });
   }
   
+  
+  delete(id: any) {
+    this.userService.deleteUser(id).subscribe({
+      next: (response) => {
+        this.toast.warning("Deleted successfully");
+        this.getAll();
+      },
+      error: (error) => {
+        console.error("An error occurred while deleting:", error);
+      }
+    });
+  }
+  
+  loadUser(data : any){
+    this.user = data
+  }
 
 }
