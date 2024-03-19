@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ApiResponse, ILogin, IRegister, } from '../../DataTypes/users';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UsersService {
@@ -10,7 +11,13 @@ export class UsersService {
   public users$: Observable<IRegister[]> = this.userubject.asObservable();
   OriginalPath = "http://localhost:3000";
 
-  constructor(private Http: HttpClient) {
+  constructor(
+    private Http: HttpClient,
+    private router: Router
+  ) {
+    if(localStorage.getItem('token') != null){
+      this.saveUserData()
+    }
     this.getAllUsers().subscribe({
       next: (response) => {
         if (response.data) {
@@ -41,14 +48,25 @@ export class UsersService {
   getUser(id: string): Observable<any> {
     return this.Http.get<any>(this.OriginalPath + "/user/getuser/" + id);
   }
-  
-  
+
+
   saveToken(token: string): void {
     localStorage.setItem('token', token);
   }
-
+  userData: any = new BehaviorSubject(null)
+  saveUserData() {
+    let encoodedToken = JSON.stringify(localStorage.getItem('token'))
+    let decodedToken = jwtDecode(encoodedToken)
+    this.userData.next(decodedToken)
+    // console.log(this.userData);
+  }
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+  signOut() {
+    localStorage.removeItem('token');
+    this.userData.next(null);
+    this.router.navigateByUrl('/login')
   }
   //   handleToken(token: string) {
   //     // Handle the token as needed

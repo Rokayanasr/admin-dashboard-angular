@@ -35,7 +35,7 @@
                     <p class="text-muted mb-0">{{user.password}}</p>
                   </td>
                   <td>
-                    <span [ngSwitch]="user.isAdmin" class="badge bg-secondary rounded-bill fw-semibold">
+                    <span [ngSwitch]="user.isAdmin" class="badge rounded-bill fw-semibold" [ngClass]="getBadgeClass(user.isAdmin)" >
                       <ng-container *ngSwitchCase="true">Admin</ng-container>
                       <ng-container *ngSwitchCase="false">User</ng-container>
                     </span>

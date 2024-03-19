@@ -54,4 +54,16 @@ export class UsersComponent implements OnInit {
     this.user = data
   }
 
+  getBadgeClass(status: any): Object {
+    switch (status) {
+      case true: // Compare with boolean values directly
+        return { 'bg-secondary': true };
+      case false:
+        return { 'pinkBg': true };
+      default:
+        return {}; // Return empty object for unknown states
+    }
+  }
+  
+
 }

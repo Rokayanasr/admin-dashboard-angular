@@ -12,15 +12,15 @@ import { Router } from '@angular/router';
 export class MealsComponent {
   meals: IMeal[] = [];
   meal!: any;
-  constructor( private mealsService: MealsService ,
-    private toast: ToastrService , private router: Router) {
+  constructor(private mealsService: MealsService,
+    private toast: ToastrService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.getAllMeals();
   }
 
-  getAllMeals(){
+  getAllMeals() {
     this.mealsService.getAllMeals().subscribe({
       next: (response) => {
         if (response.items) {
@@ -32,9 +32,9 @@ export class MealsComponent {
   }
 
 
-  deleteMeal(id:string){
+  deleteMeal(id: string) {
     this.mealsService.deleteMeal(id).subscribe({
-      next:(response)=>{
+      next: (response) => {
         // this.meals = response.items;
         this.toast.warning("deleted successfully");
         this.getAllMeals()
@@ -42,14 +42,27 @@ export class MealsComponent {
     })
   }
 
-  loadMeal(data :any){
+  loadMeal(data: any) {
     this.meal = data
     // this.router.navigate(['/mealform'])
   }
-// Clear the meal data when navigating to the meal form to add a new meal
-addMeal() {
-  this.meal = null;
-  this.router.navigate(['/mealform']);
-}
+  // Clear the meal data when navigating to the meal form to add a new meal
+  addMeal() {
+    this.meal = null;
+    this.router.navigate(['/mealform']);
+  }
+
+  getBadgeClass(status: any): Object {
+    switch (status) {
+      case 'vegan':
+        return { 'bg-secondary': true };
+      case 'vegetarian':
+        return { 'changPrimary': true };
+      case 'non-vegetarian':
+        return { 'pinkBg': true }; // Use the original color for pending
+      default:
+        return {}; // Return empty object for unknown states
+    }
+  }
 }
 

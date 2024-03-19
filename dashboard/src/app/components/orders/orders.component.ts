@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OrdersComponent implements OnInit {
   orders: IOrder[] = [];
+  order!: any;
 
   constructor(
     private orderService: OrderService,
@@ -52,11 +53,11 @@ export class OrdersComponent implements OnInit {
       console.log(order.userId)
       this.userService.getUser(order.userId).subscribe(
         (response) => {
-          console.log(response); // Log the entire response object
+          // console.log(response); // Log the entire response object
           if (Array.isArray(response) && response.length > 0) {
             const user = response[0]; // Access the first element of the array
             this.orders[index].userName = user.name; // Ensure 'name' property exists in the response
-            console.log(user.name);
+            // console.log(user.name);
           } else {
             console.error('User data not found in the response');
           }
@@ -66,8 +67,28 @@ export class OrdersComponent implements OnInit {
         }
       );
       
-      
-      
     });
   }
+
+  loadOrder(data : any){
+    this.order = data;
+  }
+
+  getBadgeClass(status: any): Object {
+    switch (status) {
+      case 'delivered':
+        return { 'bg-success': true };
+      case 'in_transit':
+        return { 'changPrimary': true };
+      case 'pending':
+        return { 'pinkBg': true }; // Use the original color for pending
+      case 'paid':
+        return { 'bg-secondary': true };
+      case 'unpaid':
+        return { 'pinkBg': true };
+      default:
+        return {}; // Return empty object for unknown states
+    }
+  }
+
 }

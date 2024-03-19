@@ -52,17 +52,22 @@
                     <p class="fw-normal mb-1">{{ order.total }}</p>
                   </td>
                   <td>
-                    <span class="badge bg-secondary rounded-3 fw-semibold">{{ order.delivery_status }}</span>
+                    <span class="badge rounded-3 fw-semibold"
+                          [ngClass]="getBadgeClass(order.delivery_status)">
+                      {{ order.delivery_status }}
+                    </span>
                   </td>
                   <td>
-                    <span class="badge bg-secondary rounded-3 fw-semibold">{{ order.payment_status }}</span>
+                    <span class="badge rounded-3 fw-semibold"
+                          [ngClass]="getBadgeClass(order.payment_status)">
+                      {{ order.payment_status }}
+                    </span>
                   </td>
                   <td>
                     <button type="button" (click)="delete(order._id)" class="btn pinkText btn-sm bg-body-secondary btn-light-indigo rounded-bill">Delete</button>
                   </td>
                   <td>
-                    <button type="button" class="btn text-indigo btn-sm bg-body-secondary btn-light-indigo rounded-bill">Edit</button>
-                  </td>
+                    <button (click)="loadOrder(order)" type="button" class="btn text-indigo btn-sm bg-body-secondary btn-light-indigo rounded-bill" data-bs-toggle="modal" data-bs-target="#largeModal">Edit</button>                  </td>
                 </tr>
               </tbody>
             </table>
@@ -72,3 +77,5 @@
     </div>
   </div>
 </div>
+
+<app-orderEdit [data]="order" (orderUpdate)="getAllOrders()"></app-orderEdit>

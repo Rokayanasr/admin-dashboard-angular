@@ -25,6 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsersService } from './components/services/users.service';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { OrderService } from './components/services/order.service';
+import { OrderEditComponent } from './components/orderEdit/orderEdit.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthGuard } from './components/services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { OrderService } from './components/services/order.service';
     OrdersComponent,
     NotFoundComponent,
     MealFormComponent,
-    EditUserComponent
+    EditUserComponent,
+    OrderEditComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,8 @@ import { OrderService } from './components/services/order.service';
     MealsService,
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
     UsersService,
-    OrderService
+    OrderService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

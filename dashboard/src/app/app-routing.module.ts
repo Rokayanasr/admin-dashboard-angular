@@ -11,11 +11,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MealFormComponent } from './components/mealForm/mealForm.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { OrderEditComponent } from './components/orderEdit/orderEdit.component';
+import { AuthGuard } from './components/services/auth.guard';
 
 const routes: Routes = [
-  {path:'',redirectTo:'main' ,pathMatch:'full'},
+  {path:'',redirectTo:'main',pathMatch:'full'},
   {
-    path: 'home',
+    path: 'home' , canActivate:[AuthGuard] ,
     component: HomeComponent,
     children: [
       { path: '', component: MainComponent },
@@ -23,28 +25,31 @@ const routes: Routes = [
       { path: 'coaches', component: CoachComponent },
       { path: 'meals', component: MealsComponent },
       { path: 'orders', component: OrdersComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
     ],
   },
-  { path: 'main', component: MainComponent },
-  { path: 'users', component: UsersComponent ,
+  { path: 'main', canActivate:[AuthGuard] ,component: MainComponent },
+  { path: 'users', canActivate:[AuthGuard] ,component: UsersComponent ,
   children: [
     {path: 'edituser' , component: EditUserComponent}
   ]
 },
-  { path: 'coaches', component: CoachComponent },
-  { path: 'meals', component: MealsComponent, 
+  { path: 'coaches', canActivate:[AuthGuard] , component: CoachComponent },
+  { path: 'meals', canActivate:[AuthGuard] , component: MealsComponent, 
   children: [
     { path: 'mealform', component: MealFormComponent },
   ] },
-  { path: 'orders', component: OrdersComponent },
+  { path: 'orders', canActivate:[AuthGuard] , component: OrdersComponent ,
+  children: [
+    { path:'editorder' , component : OrderEditComponent }
+  ]
+},
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'mealform', component: MealFormComponent },
-  { path: 'edituser', component: EditUserComponent },
+  { path: 'register', canActivate:[AuthGuard] , component: RegisterComponent },
+  { path: 'mealform', canActivate:[AuthGuard] , component: MealFormComponent },
+  { path: 'edituser', canActivate:[AuthGuard] , component: EditUserComponent },
+  { path: 'editorder', canActivate:[AuthGuard] ,component: OrderEditComponent },
 
-  { path: '**', component: NotFoundComponent },
+  { path: '**', canActivate:[AuthGuard] , component: NotFoundComponent },
 
 ];
 

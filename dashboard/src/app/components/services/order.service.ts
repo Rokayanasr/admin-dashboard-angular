@@ -22,11 +22,18 @@ export class OrderService {
     });
   }
   
-
+  
   getAllOrders(): Observable<ApiResponse<IOrder[]>>{
     return this.Http.get<ApiResponse<IOrder[]>>(this.OriginalPath + "/");
   }
   deleteOrder(id: string): Observable<any> {
     return this.Http.delete(this.OriginalPath + "/" + id, { responseType: 'text' })
   }
+  editOrder(id: string , orderData : any): Observable<any> {
+    return this.Http.put(this.OriginalPath + "/" + id, orderData , { responseType: 'text' })
+  }
+  getMonthlyEarning(): Observable<any>{
+    return this.Http.get<any>(this.OriginalPath + "/income");
+  }
+
 }

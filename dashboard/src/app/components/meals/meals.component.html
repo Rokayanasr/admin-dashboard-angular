@@ -31,7 +31,7 @@
           <div class="d-flex align-items-center px-2 gap-4 justify-content-between">
             <h6 class="fw-semibold fs-6 mb-0">${{meal.price}}</h6>
             <div class="d-flex justify-content-end">
-              <span class="badge bg-secondary rounded-3 fw-semibold">{{meal.category}}</span>
+              <span class="badge rounded-3 fw-semibold"  [ngClass]="getBadgeClass(meal.category)">{{meal.category}}</span>
             </div>
           </div>
         </div>
