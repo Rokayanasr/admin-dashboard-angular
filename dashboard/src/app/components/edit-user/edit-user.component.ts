@@ -21,10 +21,10 @@ export class EditUserComponent implements OnInit {
     private toast: ToastrService
   ) {
     this.editForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      isAdmin: [false, Validators.required]
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+      email: ['', [Validators.required, Validators.email, Validators.maxLength(200)]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(200)]],
+      isAdmin: [false]
     });
   }
 

@@ -1,4 +1,4 @@
-<form class="vh-100 was-validated"[formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<form class="vh-100" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-xl-9">
@@ -10,26 +10,36 @@
 
             <div class="mb-3">
               <label for="exampleInputName" class="form-label">Full Name</label>
-              <input type="text" class="form-control" id="exampleInputName" formControlName="name">
+              <input type="text" class="form-control" id="exampleInputName" formControlName="name" [ngClass]="{'is-invalid': registerForm.get('name')?.invalid && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty), 'is-valid': registerForm.get('name')?.valid && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty)}">
+              <div class="invalid-feedback" *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty)">
+                Full Name is required and must be between 3 and 30 characters.
+              </div>
+              <div class="valid-feedback" *ngIf="registerForm.get('name')?.valid && (registerForm.get('name')?.touched || registerForm.get('name')?.dirty)">
+                Full Name is valid.
+              </div>
             </div>
-
-            <hr class="mx-n3">
 
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email" [ngClass]="{'is-invalid': registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty), 'is-valid': registerForm.get('email')?.valid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)}">
+              <div class="invalid-feedback" *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)">
+                Email is required and must be a valid email address.
+              </div>
+              <div class="valid-feedback" *ngIf="registerForm.get('email')?.valid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)">
+                Email is valid.
+              </div>
             </div>
-
-            <hr class="mx-n3">
-
 
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+              <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" [ngClass]="{'is-invalid': registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty), 'is-valid': registerForm.get('password')?.valid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)}">
+              <div class="invalid-feedback" *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)">
+                Password is required and must be at least 6 characters long.
+              </div>
+              <div class="valid-feedback" *ngIf="registerForm.get('password')?.valid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)">
+                Password is valid.
+              </div>
             </div>
-
-            <hr class="mx-n3">
 
             <div>
               <label>Select User Role:</label>
@@ -42,8 +52,6 @@
                 <label class="form-check-label" for="adminRadio">Admin</label>
               </div>
             </div>
-
-            <hr class="mx-n3">
 
             <div class="px-5 py-4">
               <button type="submit" class="btn changPrimary btnPrimary text-white btn-lg">Send application</button>
