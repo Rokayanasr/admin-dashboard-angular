@@ -13,6 +13,7 @@ import { MealFormComponent } from './components/mealForm/mealForm.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { OrderEditComponent } from './components/orderEdit/orderEdit.component';
 import { AuthGuard } from './components/services/auth.guard';
+import { AddMealComponent } from './components/Add-meal/Add-meal.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'main',pathMatch:'full'},
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'mealform', canActivate:[AuthGuard] , component: MealFormComponent },
   { path: 'edituser', canActivate:[AuthGuard] , component: EditUserComponent },
   { path: 'editorder', canActivate:[AuthGuard] ,component: OrderEditComponent },
+  { path: 'addmeal', canActivate:[AuthGuard] ,component: AddMealComponent },
 
   { path: '**', canActivate:[AuthGuard] , component: NotFoundComponent },
 

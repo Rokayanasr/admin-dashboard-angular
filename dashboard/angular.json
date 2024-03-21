@@ -58,6 +58,8 @@
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
+
+
                         ]
           },
           "configurations": {

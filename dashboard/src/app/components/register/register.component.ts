@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
           (response) => {
             // this.userService.saveToken(response);
             console.log(response)
-            // this.router.navigate(['/login']);
+            this.router.navigate(['/users']);
             this.toast.success('user added successfully')
           },
           (error) => {

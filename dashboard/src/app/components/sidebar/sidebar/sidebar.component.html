@@ -17,7 +17,7 @@
           <span class="hide-menu text-white">Home</span>
         </li>
         <li *ngIf="isLogin" class="sidebar-item">
-          <a class="sidebar-link" routerLink="/main" aria-expanded="false">
+          <a class="sidebar-link" routerLink="/main" routerLinkActive="active" aria-expanded="false">
             <span>
               <i class="ti ti-layout-dashboard bgWhite"></i>
             </span>
@@ -29,7 +29,7 @@
           <span class="hide-menu text-white">Models</span>
         </li>
         <li *ngIf="isLogin" class="sidebar-item">
-          <a class="sidebar-link" routerLink="/users" aria-expanded="false">
+          <a class="sidebar-link" routerLink="/users" routerLinkActive="active" aria-expanded="false">
             <span>
               <i class="ti ti-user bgWhite"></i>
             </span>
@@ -37,7 +37,7 @@
           </a>
         </li>
         <li *ngIf="isLogin" class="sidebar-item">
-          <a class="sidebar-link" routerLink="/coaches" aria-expanded="false">
+          <a class="sidebar-link" routerLink="/coaches" routerLinkActive="active" aria-expanded="false">
             <span>
               <i class="ti ti-users bgWhite"></i>
             </span>
@@ -45,7 +45,7 @@
           </a>
         </li>
         <li *ngIf="isLogin" class="sidebar-item">
-          <a class="sidebar-link" routerLink="/meals" aria-expanded="false">
+          <a class="sidebar-link" routerLink="/meals" routerLinkActive="active" aria-expanded="false">
             <span>
               <i class="ti ti-meat bgWhite"></i>
             </span>
@@ -53,7 +53,7 @@
           </a>
         </li>
         <li *ngIf="isLogin" class="sidebar-item">
-          <a class="sidebar-link" routerLink="/orders" aria-expanded="false">
+          <a class="sidebar-link" routerLink="/orders" routerLinkActive="active" aria-expanded="false">
             <span>
               <i class="ti ti-list bgWhite"></i>
             </span>
@@ -66,7 +66,7 @@
           <span class="hide-menu text-white">AUTH</span>
         </li>
         <li *ngIf="!isLogin" class="sidebar-item">
-          <a class="sidebar-link" routerLink="/login" aria-expanded="false">
+          <a class="sidebar-link" routerLink="/login" routerLinkActive="active" aria-expanded="false">
             <span>
               <i class="ti ti-login bgWhite"></i>
             </span>

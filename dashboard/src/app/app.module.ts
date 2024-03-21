@@ -28,6 +28,8 @@ import { OrderService } from './components/services/order.service';
 import { OrderEditComponent } from './components/orderEdit/orderEdit.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthGuard } from './components/services/auth.guard';
+import { AddMealComponent } from './components/Add-meal/Add-meal.component';
+import { MonthlyEarningComponent } from './components/monthlyEarning/monthlyEarning.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { AuthGuard } from './components/services/auth.guard';
     EditUserComponent,
     OrderEditComponent,
     NavbarComponent,
+    AddMealComponent,
+    MonthlyEarningComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class MealFormComponent implements OnInit, OnChanges {
   @Input() data: any | null = null;
   @Output() mealUpdated: EventEmitter<void> = new EventEmitter<void>();
+  oldImage: string = "";
   mealForm: FormGroup;
   finalData: FormData | undefined;
 
@@ -20,12 +21,13 @@ export class MealFormComponent implements OnInit, OnChanges {
     private toast: ToastrService,
     private router: Router
   ) {
+
     this.mealForm = this.fb.group({
       title: ['', Validators.required],
       category: ['', Validators.required],
-      price: ['0', Validators.required],
+      price: ['', Validators.required],
       description: ['', Validators.required],
-      imageFile: [null]
+      imageFile: [''] // Add imageFile control to handle image updates
     });
   }
 
@@ -36,18 +38,14 @@ export class MealFormComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data'] && this['data']) {
       this.patchFormWithData();
+      this.oldImage = this.data.imageFile;
     }
   }
-  
 
   onSubmit() {
     if (this.mealForm.valid) {
       this.prepareFormData();
-      if (this.data) {
-        this.updateMeal();
-      } else {
-        this.createMeal();
-      }
+      this.updateMeal();
     } else {
       this.toast.error('Please fill in all required fields.');
     }
@@ -55,9 +53,7 @@ export class MealFormComponent implements OnInit, OnChanges {
 
   handleFileSelection(event: any) {
     const file = event.target.files[0];
-    this.mealForm.patchValue({
-      imageFile: file
-    });
+    this.mealForm.get('imageFile')!.setValue(file); // Update the imageFile control with the selected file
   }
 
   private prepareFormData() {
@@ -66,56 +62,45 @@ export class MealFormComponent implements OnInit, OnChanges {
     this.finalData.append('category', this.mealForm.get('category')!.value);
     this.finalData.append('price', this.mealForm.get('price')!.value);
     this.finalData.append('description', this.mealForm.get('description')!.value);
-    if (this.mealForm.get('imageFile')!.value) {
-      this.finalData.append('imageFile', this.mealForm.get('imageFile')!.value);
-    }
-  }
-
-  private createMeal() {
-    this.mealService.createMeal(this.finalData!).subscribe({
-      next: (response) => {
-        this.router.navigateByUrl('/meals')
-        this.toast.success('Meal created successfully.');
-        this.mealUpdated.emit();
-        this.resetForm();
-      },
-      error: (error: any) => {
-        console.error('Error:', error);
-      }
-    });
+    this.finalData.append('imageFile', this.mealForm.get('imageFile')!.value); // Append the imageFile to finalData
   }
 
   private updateMeal() {
-    this.mealService.updateMeal(this.data._id as string, this.finalData!).subscribe({
-      next: (response) => {
-        this.router.navigateByUrl('/meals')
-        this.toast.success('Meal updated successfully.');
-        this.mealUpdated.emit();
-        this.resetForm();
-      },
-      error: (error: any) => {
-        console.error('Error:', error);
-      }
-    });
+    if (this.data) {
+      this.mealService.updateMeal(this.data._id as string, this.finalData!).subscribe({
+        next: (response) => {
+          this.router.navigateByUrl('/meals');
+          this.toast.success('Meal updated successfully.');
+          this.mealUpdated.emit();
+          this.resetForm();
+        },
+        error: (error: any) => {
+          console.error('Error:', error);
+        }
+      });
+    }
   }
+
   private resetForm() {
     this.mealForm.reset({
       title: '',
       category: '',
       price: '0',
-      description: ''
-      
+      description: '',
+      imageFile: '' // Reset the imageFile control
     });
   }
-  
+
   private patchFormWithData() {
     if (this.data) {
       this.mealForm.patchValue({
         title: this.data.title,
         category: this.data.category,
         price: this.data.price,
-        description: this.data.description
+        description: this.data.description,
+        imageFile: '' // Initialize imageFile control with empty value
       });
+      this.oldImage = this.data.imageFile;
     }
   }
 }

@@ -33,7 +33,12 @@ export class OrderService {
     return this.Http.put(this.OriginalPath + "/" + id, orderData , { responseType: 'text' })
   }
   getMonthlyEarning(): Observable<any>{
-    return this.Http.get<any>(this.OriginalPath + "/income");
+    return this.Http.get<any>(this.OriginalPath + "/total-monthly-sales");
   }
-
+  getYearlyEarning(): Observable<any>{
+    return this.Http.get<any>(this.OriginalPath + "/total-yearly-sales");
+  }
+  getDailyEarning(): Observable<any>{
+    return this.Http.get<any>(this.OriginalPath + "/total-daily-sales");
+  }
 }
