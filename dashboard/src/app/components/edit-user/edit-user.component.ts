@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-user.component.css']
 })
 export class EditUserComponent implements OnInit {
+  
   @Input() data: any | null = null;
   @Output() userUpdate: EventEmitter<void> = new EventEmitter<void>();
   editForm: FormGroup;

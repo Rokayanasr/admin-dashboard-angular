@@ -19,15 +19,17 @@ export class MonthlyEarningComponent implements OnInit {
 
   ngOnInit() {
     this.showMonthlyEarning()
-    this.showYearlyEarning()
-    this.showDailyEarning()
+    // this.showYearlyEarning()
+    // this.showDailyEarning()
     // this.formatMonthlySales()
+    
   }
 
   showMonthlyEarning() {
     this.orderService.getMonthlyEarning().subscribe({
       next: (response) => {
-        this.MonthlySales = response ;
+        this.MonthlySales = response.totalMonthlySales ;
+        console.log(this.MonthlySales)
       }
     })
   }

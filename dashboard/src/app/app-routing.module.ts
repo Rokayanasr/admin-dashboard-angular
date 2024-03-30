@@ -14,6 +14,8 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { OrderEditComponent } from './components/orderEdit/orderEdit.component';
 import { AuthGuard } from './components/services/auth.guard';
 import { AddMealComponent } from './components/Add-meal/Add-meal.component';
+import { AddCoachComponent } from './components/AddCoach/AddCoach.component';
+import { EditCoachComponent } from './components/editCoach/editCoach.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'main',pathMatch:'full'},
@@ -34,7 +36,11 @@ const routes: Routes = [
     {path: 'edituser' , component: EditUserComponent}
   ]
 },
-  { path: 'coaches', canActivate:[AuthGuard] , component: CoachComponent },
+  { path: 'coaches', canActivate:[AuthGuard] , component: CoachComponent ,
+  children:[
+    {path:"editcoach" , component: EditCoachComponent}
+  ]
+},
   { path: 'meals', canActivate:[AuthGuard] , component: MealsComponent, 
   children: [
     { path: 'mealform', component: MealFormComponent },
@@ -50,6 +56,8 @@ const routes: Routes = [
   { path: 'edituser', canActivate:[AuthGuard] , component: EditUserComponent },
   { path: 'editorder', canActivate:[AuthGuard] ,component: OrderEditComponent },
   { path: 'addmeal', canActivate:[AuthGuard] ,component: AddMealComponent },
+  { path: 'addcoach', canActivate:[AuthGuard] ,component: AddCoachComponent },
+  { path: 'editcoach', canActivate:[AuthGuard] ,component: EditCoachComponent },
 
   { path: '**', canActivate:[AuthGuard] , component: NotFoundComponent },
 

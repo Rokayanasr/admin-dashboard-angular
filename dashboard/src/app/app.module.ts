@@ -30,6 +30,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthGuard } from './components/services/auth.guard';
 import { AddMealComponent } from './components/Add-meal/Add-meal.component';
 import { MonthlyEarningComponent } from './components/monthlyEarning/monthlyEarning.component';
+import { CoachService } from './components/services/coach.service';
+import { AddCoachComponent } from './components/AddCoach/AddCoach.component';
+import { EditCoachComponent } from './components/editCoach/editCoach.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,9 @@ import { MonthlyEarningComponent } from './components/monthlyEarning/monthlyEarn
     OrderEditComponent,
     NavbarComponent,
     AddMealComponent,
-    MonthlyEarningComponent
+    MonthlyEarningComponent,
+    AddCoachComponent,
+    EditCoachComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +72,7 @@ import { MonthlyEarningComponent } from './components/monthlyEarning/monthlyEarn
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
     UsersService,
     OrderService,
+    CoachService,
     AuthGuard
   ],
   bootstrap: [AppComponent]
